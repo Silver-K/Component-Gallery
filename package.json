@@ -10,5 +10,9 @@
   "devDependencies": {
     "nuxt": "^3.2.3",
     "sass": "^1.59.2"
+  },
+  "dependencies": {
+    "@better-scroll/core": "^2.5.1",
+    "swiper": "^9.1.0"
   }
 }

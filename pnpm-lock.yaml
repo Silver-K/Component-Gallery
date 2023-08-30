@@ -1,8 +1,14 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@better-scroll/core': ^2.5.1
   nuxt: ^3.2.3
   sass: ^1.59.2
+  swiper: ^9.1.0
+
+dependencies:
+  '@better-scroll/core': registry.npmmirror.com/@better-scroll/core/2.5.1
+  swiper: registry.npmmirror.com/swiper/9.1.0
 
 devDependencies:
   nuxt: registry.npmmirror.com/nuxt/3.2.3_sass@1.59.2
@@ -770,6 +776,20 @@ packages:
       '@babel/helper-validator-identifier': registry.npmmirror.com/@babel/helper-validator-identifier/7.19.1
       to-fast-properties: registry.npmmirror.com/to-fast-properties/2.0.0
     dev: true
+
+  registry.npmmirror.com/@better-scroll/core/2.5.1:
+    resolution: {integrity: sha512-koKOuYA55dQ04FJRIVUpMGDr1hbCfWmfX0MGp1hKagkQSWSRpwblqACiwtggVauoj9aaJRJZ9hDsTM4weaavlg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@better-scroll/core/-/core-2.5.1.tgz}
+    name: '@better-scroll/core'
+    version: 2.5.1
+    dependencies:
+      '@better-scroll/shared-utils': registry.npmmirror.com/@better-scroll/shared-utils/2.5.1
+    dev: false
+
+  registry.npmmirror.com/@better-scroll/shared-utils/2.5.1:
+    resolution: {integrity: sha512-AplkfSjXVYP9LZiD6JsKgmgQJ/mG4uuLmBuwLz8W5OsYc7AYTfN8kw6GqZ5OwCGoXkVhBGyd8NeC4xwYItp0aw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@better-scroll/shared-utils/-/shared-utils-2.5.1.tgz}
+    name: '@better-scroll/shared-utils'
+    version: 2.5.1
+    dev: false
 
   registry.npmmirror.com/@cloudflare/kv-asset-handler/0.3.0:
     resolution: {integrity: sha512-9CB/MKf/wdvbfkUdfrj+OkEwZ5b7rws0eogJ4293h+7b6KX5toPwym+VQKmILafNB9YiehqY0DlNrDcDhdWHSQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@cloudflare/kv-asset-handler/-/kv-asset-handler-0.3.0.tgz}
@@ -5966,6 +5986,12 @@ packages:
     deprecated: Please use @jridgewell/sourcemap-codec instead
     dev: true
 
+  registry.npmmirror.com/ssr-window/4.0.2:
+    resolution: {integrity: sha512-ISv/Ch+ig7SOtw7G2+qkwfVASzazUnvlDTwypdLoPoySv+6MqlOV10VwPSE6EWkGjhW50lUmghPmpYZXMu/+AQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ssr-window/-/ssr-window-4.0.2.tgz}
+    name: ssr-window
+    version: 4.0.2
+    dev: false
+
   registry.npmmirror.com/stable/0.1.8:
     resolution: {integrity: sha512-ji9qxRnOVfcuLDySj9qzhGSEFVobyt1kIOSkj1qZzYLzq7Tos/oUUWvotUPQLlrsidqsK6tBH89Bc9kL5zHA6w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/stable/-/stable-0.1.8.tgz}
     name: stable
@@ -6138,6 +6164,15 @@ packages:
       picocolors: registry.npmmirror.com/picocolors/1.0.0
       stable: registry.npmmirror.com/stable/0.1.8
     dev: true
+
+  registry.npmmirror.com/swiper/9.1.0:
+    resolution: {integrity: sha512-Ck8CywwfUghkbUAHbxTAWyeUAcNrIDNJ6EnKFBGGcHDjeqbh0Jq08RbmD5fMu1a0oOv1eIkUGVkqNJy/asm+yA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/swiper/-/swiper-9.1.0.tgz}
+    name: swiper
+    version: 9.1.0
+    engines: {node: '>= 4.7.0'}
+    dependencies:
+      ssr-window: registry.npmmirror.com/ssr-window/4.0.2
+    dev: false
 
   registry.npmmirror.com/tapable/1.1.3:
     resolution: {integrity: sha512-4WK/bYZmj8xLr+HUCODHGF1ZFzsYffasLUgEiMBY4fgtltdO6B4WJtlSbPaDTLpYTcGVwM2qLnFTICEcNxs3kA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/tapable/-/tapable-1.1.3.tgz}

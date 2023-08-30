@@ -1,42 +1,97 @@
 <script setup lang="ts">
-import pic1 from "~/assets/p1.jfif";
-import pic2 from "~/assets/p2.jfif";
-import pic3 from "~/assets/p3.jfif";
-import pic4 from "~/assets/p4.jfif";
-import pic5 from "~/assets/p5.jfif";
-import pic6 from "~/assets/p6.jfif";
-import pic7 from "~/assets/p7.jfif";
-import pic8 from "~/assets/item.jpg";
+import { useHistory } from "~~/composables/useHistory";
 
-const images = [pic1, pic2, pic3, pic4, pic5, pic6, pic7, pic8];
-const pictures = ref<any[]>(Array(8).fill(undefined));
-pictures.value.forEach(
-  (item, index) => (pictures.value[index] = images[index])
-);
+const pageNum = ref(1);
+const { pushState, replaceState, registerHook } = useHistory();
+registerHook((state) => {
+  const { page } = state;
+  pageNum.value = page;
+});
+const resolvePageNum = (url: string) => {
+  const _url = new URL(url);
+  const page = _url.searchParams.get("page") || "1";
+  return Number(page);
+};
+
+onMounted(() => {
+  replaceState(
+    {
+      page: resolvePageNum(window.location.href),
+    },
+    ""
+  );
+});
+const go = (n: number) => {
+  const newUrl = new URL(window.location.href);
+  if (n > 0) {
+    const temp = pageNum.value + n;
+    const newPage = temp > 3 ? 1 : temp;
+    newUrl.searchParams.set("page", `${newPage}`);
+    pushState(
+      {
+        page: newPage,
+      },
+      newUrl.href
+    );
+  } else if (n !== 0) {
+    const temp = pageNum.value + n;
+    const newPage = temp < 1 ? 3 : temp;
+    newUrl.searchParams.set("page", `${newPage}`);
+    pushState(
+      {
+        page: newPage,
+      },
+      newUrl.href
+    );
+  }
+};
 </script>
 
 <template>
-  <div class="demo">
-    <circle-cards
-      :view-height="300"
-      :display-length="7"
-      :item-width="300"
-      :data-list="pictures"
-    >
-      <template v-slot="{ data }">
-        <img class="img" :src="data.item" />
-      </template>
-    </circle-cards>
+  <div class="view-port">
+    <a href="/another-page" @click="jump">/another-page</a>
+    <hr />
+    <div>页数： {{ pageNum }}</div>
+    <div v-show="1 === pageNum" class="page-one">
+      <div class="jump" @click="go(1)">去第二页</div>
+      <div class="jump disable">上一页</div>
+    </div>
+    <div v-show="2 === pageNum" class="page-two">
+      <div class="jump" @click="go(1)">下一页</div>
+      <div class="jump" @click="go(-1)">上一页</div>
+    </div>
+    <div v-show="3 === pageNum" class="page-three">
+      <div class="jump disable">下一页</div>
+      <div class="jump" @click="go(-1)">去第二页</div>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.demo {
-  padding-top: 60px;
-  padding-left: 60px;
+* {
+  box-sizing: border-box;
 }
-.img {
-  max-width: 100%;
-  max-height: 100%;
+hr {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+.view-port {
+  padding-top: 160px;
+  padding-left: 280px;
+  padding-right: 280px;
+}
+.jump {
+  color: blue;
+  font-size: 16px;
+  line-height: 22px;
+  user-select: none;
+  &:not(.disable) {
+    cursor: pointer;
+  }
+
+  &.disable {
+    color: grey;
+    cursor: default;
+  }
 }
 </style>
