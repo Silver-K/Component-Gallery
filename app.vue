@@ -1,12 +1,10 @@
-import { NuxtLayout } from './.nuxt/components';
+<script setup lang="ts"></script>
 
 <template>
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
 </template>
-
-<script setup lang="ts"></script>
 
 <style lang="scss">
 * {

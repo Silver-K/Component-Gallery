@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useHistory } from "~~/composables/useHistory";
+import { isClient } from "~~/utils";
 
 const pageNum = ref(1);
 const { pushState, replaceState, registerHook } = useHistory();
@@ -48,21 +49,23 @@ const go = (n: number) => {
 </script>
 
 <template>
-  <div class="view-port">
-    <a href="/another-page" @click="jump">/another-page</a>
-    <hr />
-    <div>页数： {{ pageNum }}</div>
-    <div v-show="1 === pageNum" class="page-one">
-      <div class="jump" @click="go(1)">去第二页</div>
-      <div class="jump disable">上一页</div>
-    </div>
-    <div v-show="2 === pageNum" class="page-two">
-      <div class="jump" @click="go(1)">下一页</div>
-      <div class="jump" @click="go(-1)">上一页</div>
-    </div>
-    <div v-show="3 === pageNum" class="page-three">
-      <div class="jump disable">下一页</div>
-      <div class="jump" @click="go(-1)">去第二页</div>
+  <div>
+    <div class="view-port">
+      <a href="/another-page" @click="jump">/another-page</a>
+      <hr />
+      <div>页数： {{ pageNum }}</div>
+      <div v-show="1 === pageNum" class="page-one">
+        <div class="jump" @click="go(1)">去第二页</div>
+        <div class="jump disable">上一页</div>
+      </div>
+      <div v-show="2 === pageNum" class="page-two">
+        <div class="jump" @click="go(1)">下一页</div>
+        <div class="jump" @click="go(-1)">上一页</div>
+      </div>
+      <div v-show="3 === pageNum" class="page-three">
+        <div class="jump disable">下一页</div>
+        <div class="jump" @click="go(-1)">去第二页</div>
+      </div>
     </div>
   </div>
 </template>
