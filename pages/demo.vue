@@ -24,8 +24,8 @@ const revertToList = () => {
     i.value -= 1;
   }
 };
-watch(i, (indx) => {
-  innerContent.value = lines.slice(0, indx).join("");
+watchEffect(() => {
+  innerContent.value = lines.slice(0, i.value).join("");
 });
 const increaseN = () => {
   n.value = n.value + 1;
